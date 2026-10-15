@@ -1,6 +1,6 @@
 # Install Pico AI Bot Software
 
-Rev 0.1 10/13/26
+Rev 0.2 10/14/26
 
 This document explains how to load the Arduino IDE and Raspberry Pi Pico support onto your laptop **before** the workshop. Please do this at home: the Pico support is a large download (several hundred MB) and the workshop wifi can't handle ten people downloading it at once.
 
@@ -30,9 +30,11 @@ You don't have to donate or sign up; click "Just Download".
 - Download the AppImage (64-bit) file.  
 - Make it executable and run it:
 
-chmod \+x arduino-ide\_\*.AppImage
-
-./arduino-ide\_\*.AppImage
+\`\`\`  
+cd \~/Downloads  
+chmod \+x arduino-ide\_\*.AppImage  
+./arduino-ide\_\*.AppImage –no-sandbox  
+\`\`\`
 
 - If it won't start on Ubuntu 22.04 or newer, install FUSE: `sudo apt install libfuse2` (on Ubuntu 24.04 the package is `libfuse2t64`).  
 - Give yourself permission to use serial ports, then **log out and back in**:
@@ -50,11 +52,12 @@ Start the Arduino IDE once while connected to the internet. On first launch it d
    - macOS: **Arduino IDE \> Settings**  
 2. Find the box labeled **Additional boards manager URLs** and paste in this URL:
 
-https\://github.com/earlephilhower/arduino-pico/releases/download/global/package\_rp2040\_index.json
+\`\`\`  
+https\://github.com/earlephilhower/arduino-pico/releases/download/global/package\_rp2040\_index.json  
+\`\`\`
 
-3. Click **OK**.
-
-If there's already a URL in that box, click the icon next to it and add this one on a new line.
+3. If there's already a URL in that box, click the icon next to it and add this one on a new line.  
+4. Click **OK**.
 
 # Step 3: Install the Pico board package
 
@@ -90,4 +93,6 @@ This is covered in the workshop. It's here for reference.
 - **The board package download fails or stalls.** Retry. If you're on a work or school network, try a home network. Antivirus software sometimes blocks the download, so try pausing it temporarily.  
 - **Verify fails with an error.** Make sure the selected board (bottom right of the IDE window, or Tools \> Board) is Raspberry Pi Pico. Copy the error message and email it to [paul.bouchier@gmail.com](mailto:paul.bouchier@gmail.com).  
 - **Linux: upload fails with "permission denied".** You need to be in the `dialout` group (see Step 1\) and you must log out and back in after adding yourself.  
-- More help: [https\://arduino-pico.readthedocs.io/en/latest/install.html](https://arduino-pico.readthedocs.io/en/latest/install.html)
+- **No Port:** use a data cable; charge-only micro-USB cables are a common cause of 'no port'  
+- More help: [https\://arduino-pico.readthedocs.io/en/latest/install.htm](https://arduino-pico.readthedocs.io/en/latest/install.html)
+
